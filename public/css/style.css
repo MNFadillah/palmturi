@@ -1,0 +1,56 @@
+.dashboard{
+	background-color: #eef2f6;
+	 margin-top: 40px;
+}
+
+.round{
+	border-radius: 50%;
+	border: 2px solid #3273dc;
+}
+
+.round-white{
+
+		border-radius: 50%;
+		border: 4px solid #ffffff;
+}
+
+.pad-top{
+	padding-top: 2em;
+}
+.mright{
+	margin-right: 0.5em;
+}
+
+.is-primary{
+	color: #3273dc;
+}
+.mleft{
+	margin-left: 2em;
+}
+.mtop{
+	margin-top: 1em;
+}
+.mright{
+	margin-right: 0.5em;
+}
+.brdtop{
+	border-top: 5px solid #0aafc4;
+}
+.bg{
+	background-image: url(../img/bg.jpg);
+	background-repeat: no-repeat;
+}
+.bgtransparent{
+	padding: 0.4em;
+	background: rgba(0, 0, 0, 0.7);
+}
+.ctosca{
+	color: #0aafc4;
+}
+.bg-pattern{
+	background-image: url(../img/hypnotize.png);
+}
+
+.bg-pattern2{
+	background-image: url(../img/doodles.png);
+}

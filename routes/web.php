@@ -12,5 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.login');
+});
+Route::get('/beranda', function () {
+    return view('pages.index');
+});
+Route::get('/alumni', function () {
+    return view('pages.listuser');
+});
+Route::get('/berita', function () {
+    return view('pages.news');
+});
+Route::get('/profil', function () {
+    return view('pages.profile');
+});
+Route::get('/pengaturan', function () {
+    return view('pages.setting');
+});
+Route::get('/pilihberita', function () {
+    return view('pages.newsselect');
 });
