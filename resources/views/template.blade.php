@@ -47,9 +47,9 @@
         </a>
         <div class="navbar-item has-dropdown is-hoverable is-hidden-touch">
           <a class="navbar-link">
-            <span class="mright">Rifardi</span>
+            <span class="mright">{{ Auth::user()->nama }}</span>
             <figure class="image is-32x32">
-              <img class="round" src="img/img_avatar.png">
+              <img class="round" src="img/foto/{{ Auth::user()->foto }}">
             </figure>
           </a>
           <div class="navbar-dropdown is-boxed is-right">
@@ -66,12 +66,13 @@
               Pengaturan
             </a>
             <hr class="navbar-divider">
-            <a href="#" class="navbar-item">
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="navbar-item">
               <span class="icon is-small">
                 <i class="fa fa-power-off"></i>
               </span>
                Keluar
             </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
           </div>
         </div>
       </div>
