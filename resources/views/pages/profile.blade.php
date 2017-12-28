@@ -10,8 +10,8 @@
           <div class="hero-body">
             <div class="columns">
               <div class="column is-2">
-                <figure class="image is-96x96 round-white">
-                  <img src="img/img_avatar.png">
+                <figure class="image is-96x96">
+                  <img class="round round-profile brd-white" src="img/img_avatar.png">
                 </figure>
               </div>
               <div class="column pad-top">

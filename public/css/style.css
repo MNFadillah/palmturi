@@ -6,12 +6,18 @@
 .round{
 	border-radius: 50%;
 	border: 2px solid #3273dc;
+	overflow: hidden;
+	background-size: cover;
+background-position: center center;
 }
 
-.round-white{
+.round-profile{
+	min-width: 96px;
+	min-height: 96px;
+}
 
-		border-radius: 50%;
-		border: 4px solid #ffffff;
+.brd-white{
+	border: 4px solid #ffffff;
 }
 
 .pad-top{

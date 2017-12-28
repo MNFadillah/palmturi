@@ -17,7 +17,7 @@
               <div class="column">
                 <article class="card is-rounded">
                   <div class="card-content">
-                    <h1 class="title">
+                    <h1 class="title level-item">
                       <img src="img/logo-full.png" alt="logo">
                     </h1>
                       <div class="field">
