@@ -12,8 +12,8 @@
 */
 
 /*
-Route::get('/beranda', function () {    
-    return view('pages.index'); 
+Route::get('/beranda', function () {
+    return view('pages.index');
 });
 
 Route::get('/alumni', function () {
