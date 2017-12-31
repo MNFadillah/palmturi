@@ -47,6 +47,10 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validateLogin($request);
+		 // Customization: Validate if client status is active (1)
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
         $email = $request->get($this->username());
         $alumni = Alumni::where($this->username(), $email)->first();
         if($alumni != null){
