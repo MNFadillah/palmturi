@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Berita;
+use Auth;
 
 class BerandaController extends Controller
 {
@@ -15,6 +17,8 @@ class BerandaController extends Controller
     public function index()
     {
         //
-        return view('pages.index');
+        $ang=substr(Auth::user()->lulus, 0, 4);
+        $berita = Berita::paginate(3);
+        return view('pages.index',compact('berita','ang'));
     }
 }

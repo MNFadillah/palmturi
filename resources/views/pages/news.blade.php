@@ -18,241 +18,59 @@
             <div class="card">
                 <section class="section">
                   <div class="columns is-desktop">
+                  @php $kol=1; @endphp
+                  @foreach($berita as $data)
                     <div class="column">
                       <div class="card has-text-justified">
                         <div class="card-image">
                           <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                            <img src="/palmturi/public/img/berita/{{$data['featured_image']}}" alt="Placeholder image">
                           </figure>
                         </div>
                         <div class="card-content">
                           <div class="media">
                             <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="newsselect.html">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
+                              <p class="subtitle has-text-weight-semibold"><a href="{{action('BeritaController@show', $data['id_berita'])}}">{{$data['judul']}}</a></p>
                             </div>
                           </div>
 
                           <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            {{substr($data['konten'], 0, 256)}}...
                             <br>
                             <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
+                            <span class="has-text-grey has-text-size-6">Dipostkan {{date('d-F-Y', strtotime($data['created_at']))}} at {{date('h:i a', strtotime($data['created_at']))}}</span>
                           </div>
                         </div>
                       </div>
                     </div>
+                    @if ($kol%3==0)
+                      </div>
+                      <div class="columns is-desktop">
+                      @php $kol=0; @endphp
+                    @endif
+                    @php $kol++; @endphp
+                  @endforeach
+                  @if ($kol>1)
                     <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="newsselect.html">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="newsselect.html">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
+                    @if ($kol==2)
+                      <div class="column">
                       </div>
-                    </div>
+                    @endif
+                  @endif
                   </div>
                   <div class="columns is-desktop">
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="#">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="#">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="#">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
+                  <div class="column">
+                    <div class="level-item">
+                    <form id="cari-form" action="{{ route('berita') }}" method="POST">{{ csrf_field() }}
+                      <input type="text" name="id" value="{{$id}}" id="" hidden>
+                      <button type="submit" class="button is-link has">
+                        <span class="mright">Tampilkan Lainnya</span>
+                        <span><i class="fa fa-arrow-circle-down"> </i></span>
+                      </button>
+                    </form>
                     </div>
                   </div>
-                  <div class="columns is-desktop">
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="#">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="#">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="card has-text-justified">
-                        <div class="card-image">
-                          <figure class="image is-4by3">
-                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                          </figure>
-                        </div>
-                        <div class="card-content">
-                          <div class="media">
-                            <div class="media-content">
-                              <p class="subtitle has-text-weight-semibold"><a href="#">Kuliah Kerja Nyata Ditunda sampai juli</a></p>
-                            </div>
-                          </div>
-
-                          <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <br>
-                            <br>
-                            <span class="has-text-grey has-text-size-6">Dipostkan  1 Jan 2017</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="level-item">
-                    <button class="button is-link has">
-                      <span class="mright">Tampilkan Lainnya</span>
-                      <span><i class="fa fa-arrow-circle-down"> </i></span>
-                    </button>
                   </div>
                 </section>
             </div>

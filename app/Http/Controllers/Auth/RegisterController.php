@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Image;
 
 class RegisterController extends Controller
 {
@@ -97,17 +98,38 @@ class RegisterController extends Controller
             try{
                 $alumni->save();
                 $newName    = $alumni->id.".".$fileEx;
-                $request->file('foto')->move("img/foto", $newName);
+                $file=$this->resize($file, $newName);
                 chmod("img/foto/$newName", 0755);
                 $alumni->foto=$newName;
                 $alumni->save();
                 return "<script>alert('Berhasil');location.href='login';</script>";
             } 
             catch(\Exception $e){
-                return "<script>alert('Gagal');location.href='register';</script>";
+                return "<script>alert('$e');location.href='register';</script>";
             }
         }
     else return "<script>alert('Gagal : File foto harus JPG atau PNG');location.href='register';</script>";
         //return redirect('/');
+    }
+
+    private function resize($image, $nama)
+    {
+        try 
+        {
+            $extension      =   $image->getClientOriginalExtension();
+            $imageRealPath  =   $image->getRealPath();
+            $thumbName      =   $image->getClientOriginalName();
+
+            //$imageManager = new ImageManager(); // use this if you don't want facade style code
+            //$img = $imageManager->make($imageRealPath);
+
+            $img = Image::make($imageRealPath); // use this if you want facade style code
+            $img->resize(96, 96);
+            return $img->save(public_path('img/foto'). '/'. $nama);
+        }
+        catch(Exception $e)
+        {
+            return false;
+        }
     }
 }

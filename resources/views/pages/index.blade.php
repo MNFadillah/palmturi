@@ -15,11 +15,13 @@
               </div>
             </section>
             <br>
+
+            @foreach($berita as $data)
             <div class="box">
               <article class="media">
                 <div class="media-left is-hidden-touch">
                   <figure class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                    <img src="/palmturi/public/img/berita/{{$data['featured_image']}}" alt="Image">
                   </figure>
                 </div>
                 <div class="media-content">
@@ -28,76 +30,23 @@
                       <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
                     </figure>
                     <p class="has-text-justified">
-                      <strong class="subtitle has-text-weight-semibold">Kuliah Kerja Nyata Ditunda Sampai Bulan Juli</strong>
+                      <strong class="subtitle has-text-weight-semibold">{{$data['judul']}}</strong>
                       <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      {{substr($data['konten'], 0, 256)}}...
                     </p>
                   </div>
-                  <small>Dipost 7 hari yang lalu<br></small>
+                  <small>{{$data['created_at']}}<br></small>
                   <a href="{{URL::to('/pilihberita')}}">
                   <button class="button is-link is-outlined is-pulled-right is-hidden-touch">Baca Selengkapnya</button></a>
                   <a  href="{{URL::to('/pilihberita')}}"><button class="button is-link  is-outlined is-fullwidth mtop is-hidden-desktop">
                   Baca Selengkapnya</button></a>
-
                 </div>
               </article>
             </div>
-            <div class="box">
-              <article class="media">
-                <div class="media-left is-hidden-touch">
-                  <figure class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <div class="content">
-                    <figure class="image is-16by9 is-hidden-desktop">
-                      <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                    </figure>
-                    <p class="has-text-justified">
-                      <strong class="subtitle has-text-weight-semibold">Kuliah Kerja Nyata Ditunda Sampai Bulan Juli</strong>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                  <small>Dipost 7 hari yang lalu<br></small>
-                  <a href="{{URL::to('/pilihberita')}}">
-                  <button class="button is-link is-outlined is-pulled-right is-hidden-touch">Baca Selengkapnya</button></a>
-                  <a  href="{{URL::to('/pilihberita')}}"><button class="button is-link  is-outlined is-fullwidth mtop is-hidden-desktop">
-                  Baca Selengkapnya</button></a>
+            @endforeach
 
-                </div>
-              </article>
-            </div>
-            <div class="box">
-              <article class="media">
-                <div class="media-left is-hidden-touch">
-                  <figure class="image is-128x128">
-                    <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <div class="content">
-                    <figure class="image is-16by9 is-hidden-desktop">
-                      <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-                    </figure>
-                    <p class="has-text-justified">
-                      <strong class="subtitle has-text-weight-semibold">Kuliah Kerja Nyata Ditunda Sampai Bulan Juli</strong>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                  <small>Dipost 7 hari yang lalu<br></small>
-                  <a href="{{URL::to('/pilihberita')}}">
-                  <button class="button is-link is-outlined is-pulled-right is-hidden-touch">Baca Selengkapnya</button></a>
-                  <a  href="{{URL::to('/pilihberita')}}"><button class="button is-link  is-outlined is-fullwidth mtop is-hidden-desktop">
-                  Baca Selengkapnya</button></a>
-
-                </div>
-              </article>
-            </div>
             <div class="level-item">
-              <a class="button is-link">Lihat Lebih Banyak</a>
+              <a href="berita"class="button is-link">Lihat Lebih Banyak</a>
             </div>
           </main>
           <aside class="column has-text-centered">
@@ -108,11 +57,11 @@
             </div>
             <div class="box notification is-white">
               <span class="icon is-large"><i class="fa fa-graduation-cap is-size-2 ctosca"></i></span>
-              <h2 class="is-size-5 is-uppercase has-text-weight-light">Angkatan 98'</h2>
-              <h6>Cari teman-teman angkatan tahun 1998 untuk terhubung dengan mereka</h6><br>
+              <h2 class="is-size-5 is-uppercase has-text-weight-light">Angkatan {{substr($ang,2,2)}}'</h2>
+              <h6>Cari teman-teman angkatan tahun {{$ang}} untuk terhubung dengan mereka</h6><br>
               <div class="card-footer">
                 <p class="card-footer-item">
-                  <span>Lihat <a href="#">Angkatan 98</a></span>
+                  <span>Lihat <a href="{{URL::to('angkatan/')}}/{{$ang}}">Angkatan {{$ang}}</a></span>
                 </p>
               </div>
             </div>

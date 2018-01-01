@@ -10,8 +10,8 @@
           <div class="hero-body">
             <div class="columns">
               <div class="column is-2">
-                <figure class="image is-96x96">
-                  <img class="round round-profile brd-white" src="img/foto/{{ $alumni->foto }}">
+                <figure class="image is-96x96 round-white">
+                  <img src="/palmturi/public/img/foto/{{ $alumni->foto }}">
                 </figure>
               </div>
               <div class="column pad-top">
@@ -37,7 +37,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->namaPanggilanVis==1)
+                  @if($alumni->namaPanggilanVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Nama Paggilan</h4>
@@ -47,7 +47,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->tempatLahirVis==1)
+                  @if($alumni->tempatLahirVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Tempat Lahir</h4>
@@ -57,7 +57,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->tanggalLahirVis==1)
+                  @if($alumni->tanggalLahirVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Tanggal Lahir</h4>
@@ -67,7 +67,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->alamatVis==1)
+                  @if($alumni->alamatVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Alamat Rumah</h4>
@@ -77,7 +77,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->telpVis==1)
+                  @if($alumni->telpVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Nomor Handphone</h4>
@@ -87,7 +87,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->emailVis==1)
+                  @if($alumni->emailVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Email</h4>
@@ -105,7 +105,7 @@
                 <h1 class="is-size-5 has-text-weight-semibold">
                   <i class="fa fa-graduation-cap"></i> Sekolah</h1>
                 <div class="card-content">
-                  @if($alumni->nisVis==1)
+                  @if($alumni->nisVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Nomor Induk</h4>
@@ -115,7 +115,7 @@
                     </div>
                   </div>
                   @endif
-                  @if($alumni->angkatanVis==1)
+                  @if($alumni->angkatanVis==1) 
                   <div class="columns">
                     <div class="column">
                         <h4 class="has-text-size-4 has-text-weight-semibold">Masa Sekolah</h4>
@@ -131,7 +131,7 @@
                 <h1 class="is-size-5 has-text-weight-semibold">
                   <i class="fa fa-briefcase"></i>  Karir</h1>
                  <div class="card-content">
-                    @if($alumni->pekerjaanVis==1)
+                    @if($alumni->pekerjaanVis==1) 
                     <div class="columns">
                      <div class="column">
                          <h4 class="has-text-size-4 has-text-weight-semibold">Pekerjaan</h4>
@@ -141,7 +141,7 @@
                      </div>
                     </div>
                     @endif
-                    @if($alumni->organisasiVis==1)
+                    @if($alumni->organisasiVis==1) 
                     <div class="columns">
                       <div class="column">
                          <h4 class="has-text-size-4 has-text-weight-semibold">Organisasi</h4>
@@ -151,7 +151,7 @@
                       </div>
                     </div>
                     @endif
-                    @if($alumni->jabatanVis==1)
+                    @if($alumni->jabatanVis==1) 
                     <div class="columns">
                       <div class="column">
                          <h4 class="has-text-size-4 has-text-weight-semibold">Jabatan</h4>
@@ -161,7 +161,7 @@
                       </div>
                     </div>
                     @endif
-                    @if($alumni->alamatOrgVis==1)
+                    @if($alumni->alamatOrgVis==1) 
                     <div class="columns">
                       <div class="column">
                          <h4 class="has-text-size-4 has-text-weight-semibold">Alamat</h4>
@@ -171,7 +171,7 @@
                       </div>
                     </div>
                     @endif
-                    @if($alumni->telpOrgVis==1)
+                    @if($alumni->telpOrgVis==1) 
                     <div class="columns">
                        <div class="column">
                          <h4 class="has-text-size-4 has-text-weight-semibold">Telp/Fax</h4>

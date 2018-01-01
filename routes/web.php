@@ -11,43 +11,33 @@
 |
 */
 
-/*
-Route::get('/beranda', function () {
-    return view('pages.index');
-});
-
-Route::get('/alumni', function () {
-    return view('pages.listuser');
-});
-
-Route::get('/profil', function () {
-    return view('pages.profile');
-});
-
-Route::get('/pengaturan', function () {
-    return view('pages.setting');
-});
-
-Route::get('/berita', function () {
-    return view('pages.news');
-});
-
-Route::get('/pilihberita', function () {
-    return view('pages.newsselect');
-});
-*/
-
 Route::get('/','BerandaController@index');
 
 Auth::routes();
 
 Route::get('/beranda', 'BerandaController@index');
 
+Route::resource('berita', 'BeritaController');
+
+Route::post('/berita', ['as' => 'berita', 'uses' => 'BeritaController@showMore']);
+
+Route::post('/saveComment', ['as' => 'saveComment', 'uses' => 'BeritaController@saveComment']);
+
 Route::get('/profil', 'ProfileController@index');
 
 Route::get('/pengaturan', 'PengaturanController@index');
 
-Route::post('/simpeng', ['as' => 'saveSetting', 'uses' => 'PengaturanController@update']);
+Route::post('/saveSetting', ['as' => 'saveSetting', 'uses' => 'PengaturanController@update']);
+
+Route::get('pencarian', 'AlumniController@index');
+
+Route::post('toCari', ['as' => 'toCari', 'uses' => 'AlumniController@toCari']);
+
+Route::get('pencarian/{id}','AlumniController@cari');
+
+Route::get('angkatan', 'AlumniController@index');
+
+Route::get('angkatan/{id}', 'AlumniController@angkatan');
 
 Route::resource('alumni', 'AlumniController');
 

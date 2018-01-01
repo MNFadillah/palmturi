@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Alumni;
+use Image;
 
 class PengaturanController extends Controller
 {
@@ -47,10 +48,10 @@ class PengaturanController extends Controller
                 $file       = $request->file('foto');
                 //$fileName   = $file->getClientOriginalName();
                 $fileEx     = $file->getClientOriginalExtension();
-                if($fileEx=='jpg' || $fileEx=='png'){    
+                if($fileEx=='jpg' || $fileEx=='png'){
+                    unlink('img/foto/'.$alumni->foto);
                     $newName    = $alumni->id.".".$fileEx;
-                    $request->file('foto')->move("img/foto", $newName);
-                    chmod("img/foto/$newName", 0755);
+                    $file=$this->resize($file, $newName);
                     $alumni->foto=$newName;
                 }
                 else return "<script>alert('Gagal : File foto harus JPG atau PNG');location.href='pengaturan';</script>";
@@ -77,6 +78,26 @@ class PengaturanController extends Controller
         return redirect('pengaturan');
     }
 
+    private function resize($image, $nama)
+    {
+        try 
+        {
+            $extension      =   $image->getClientOriginalExtension();
+            $imageRealPath  =   $image->getRealPath();
+            $thumbName      =   $image->getClientOriginalName();
+
+            //$imageManager = new ImageManager(); // use this if you don't want facade style code
+            //$img = $imageManager->make($imageRealPath);
+
+            $img = Image::make($imageRealPath); // use this if you want facade style code
+            $img->resize(96, 96);
+            return $img->save(public_path('img/foto'). '/'. $nama);
+        }
+        catch(Exception $e)
+        {
+            return false;
+        }
+    }
     public function visibleGk($data){
         if($data) return '1';
         else return '0';

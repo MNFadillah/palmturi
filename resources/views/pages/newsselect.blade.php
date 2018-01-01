@@ -14,15 +14,13 @@
           <article class="media">
             <div class="media-content">
               <div class="content">
-                <h3 class="title has-text-centered has-text-info has-text-weight-semibold">Uas Ditunda Sampai Desember Tahun Depan</h3>
+                <h3 class="title has-text-centered has-text-info has-text-weight-semibold">{{$berita['judul']}}</h3>
                 <figure class="image is-16by9">
-                  <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                  <img src="/palmturi/public/img/berita/{{$berita['featured_image']}}" alt="Image">
                 </figure>
                 <section class="section">
                   <p class="has-text-justified">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing piscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                    Lorem ipsum dolor sit amet, elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                    {{$berita['konten']}}
                   </p>
                   <nav class="level is-mobile">
                     <div class="level-left">
@@ -32,7 +30,7 @@
                       <a class="level-item">
                         <span class="icon is-small"><i class="fa fa-thumbs-o-up"></i></span>
                       </a>
-                      <small>Post on 21 Dec 2017</small>
+                      <small>Post on {{date('d-F-Y', strtotime($berita['created_at']))}} at {{date('h:i a', strtotime($berita['created_at']))}}</small>
                     </div>
                   </nav>
                 </section>
@@ -41,66 +39,48 @@
           </article>
           <br>
           <div id="comment">
+            @foreach($komentar as $data)
             <article class="media mleft">
               <div class="media-left">
                 <figure class="image is-32x32">
-                  <img class="round" src="img/img_avatar.png" alt="Image">
+                  <img class="round" src="/palmturi/public/img/foto/{{$data['foto']}}" alt="Image">
                 </figure>
               </div>
               <div class="media-content">
                 <div class="content">
                   <p class="has-text-justified">
-                    <strong>Rifardi Taufiq</strong>
-                    <br> L orem ipsum dolor sit amet, consecte orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                    <strong>{{$data['nama']}}</strong>
+                    <br> {{$data['isi']}}
                     <nav class="level is-mobile">
                       <div class="level-left">
                         <a class="level-item">
                         <a class="level-item">
                           <span class="icon is-small"><i class="fa fa-thumbs-o-up"></i></span>
                         </a>
-                        <small>31m yang lalu</small>
+                        <small>on {{date('d-F-Y', strtotime($data['created_at']))}} at {{date('h:i a', strtotime($data['created_at']))}}</small>
                       </div>
                     </nav>
                   </p>
                 </div>
               </div>
             </article>
-            <article class="media mleft">
-              <div class="media-left">
-                <figure class="image is-32x32">
-                  <img class="round" src="img/img_avatar.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>Rifardi Taufiq</strong>
-                    <br> L orem ipsum dolor sit amet, consecte orem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                    <nav class="level is-mobile">
-                      <div class="level-left">
-                        <a class="level-item">
-                        <a class="level-item">
-                          <span class="icon is-small"><i class="fa fa-thumbs-o-up"></i></span>
-                        </a>
-                        <small>31m yang lalu</small>
-                      </div>
-                    </nav>
-                  </p>
-                </div>
-              </div>
-            </article>
+            @endforeach
             <br>
+            <form method="post" action="{{ route('saveComment') }}" enctype="multipart/form-data">
+            {{csrf_field()}}
             <div class="field">
               <label class="label">Comment</label>
+              <input type="text" name="id_berita" value="{{$id}}" id="" hidden>
               <div class="control">
-                <textarea class="textarea" placeholder="Textarea"></textarea>
+                <textarea class="textarea" name="isi" placeholder="Textarea"></textarea>
               </div>
             </div>
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-link">Submit</button>
+                <button type="submit" class="button is-link">Submit</button>
               </div>
             </div>
+            </form>
           </div>
         </div>
       </main>

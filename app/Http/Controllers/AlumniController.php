@@ -87,6 +87,22 @@ class AlumniController extends Controller
         return view('pages.profile', compact('alumni','id'));
     }
 
+    public function angkatan($id){
+        $a=$id;
+        $z=$id+1;
+        $alumni = Alumni::whereBetween('lulus', ["$a-01-01", "$z-01-01"])->get();
+        return view('pages.listuser', compact('alumni'));
+    }
+
+    public function toCari(Request $request){
+        $id=$request->get('q');
+        return redirect("pencarian/$id");
+    }
+
+    public function cari($id){
+        $alumni = Alumni::where('nama', 'LIKE', '%' . $id . '%')->paginate(10);
+        return view('pages.listuser', compact('alumni', 'id'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -105,7 +121,7 @@ class AlumniController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $requestuest, $id)
+    public function update(Request $request, $id)
     {
         //
     }

@@ -1,83 +1,40 @@
+@php 
+  $th=date('Y');  
+@endphp
 <div class="section">
     <nav class="panel">
       <p class="panel-heading">
         DAFTAR ANGKATAN
       </p>
+      <form id="cari-form" action="{{ route('toCari') }}" method="POST">{{ csrf_field() }}
       <div class="panel-block">
         <p class="control has-icons-left">
-          <input class="input is-small" type="text" placeholder="Cari Nama">
+          <input class="input is-small" name="q" type="text" placeholder="Cari Nama">
           <span class="icon is-small is-left">
-            <i class="fa fa-search"></i>
+            <a onclick="event.preventDefault(); document.getElementById('cari-form').submit();">
+              <i class="fa fa-search"></i>
+            </a>
           </span>
         </p>
       </div>
+      </form>
       <p class="panel-tabs is-hidden-tablet-only">
-        <a class="is-active">all</a>
-        <a>1980</a>
-        <a>1990</a>
-        <a>2000</a>
-        <a>2010</a>
+        <a class="" href="{{URL::to('/alumni')}}">all</a>
+        @for ($i = 0; $i < 4; $i++)
+          <a href="{{URL::to('angkatan/')}}/{{$th-(10*$i)}}">{{$th-(10*$i)}}</a>
+        @endfor
       </p>
-      <a class="panel-block is-active">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-        Angkatan 1980
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1981
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1982
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1983
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-        Angkatan 1984
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1985
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1986
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1987
-      </a>
-      <a class="panel-block ">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-        Angkatan 1988
-      </a>
-      <a class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-graduation-cap"></i>
-        </span>
-      Angkatan 1989
-      </a>
+      
+      <div>
+      @for ($a = 1; $a < 10 ; $a++)
+        <a class="panel-block" href="{{URL::to('angkatan/')}}/{{$th-$a}}">
+          <span class="panel-icon">
+            <i class="fa fa-graduation-cap"></i>
+          </span>
+          Angkatan {{$th-$a}}
+        </a>
+      @endfor
+      </div>
       <a href="{{URL::to('/alumni')}}" class="panel-block">
         <button class="button is-link is-outlined is-fullwidth">
         Lihat Semua

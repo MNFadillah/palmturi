@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Admin as Authenticatable;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use Notifiable;
 
@@ -15,9 +15,9 @@ class User extends Authenticatable
      * @var array
      */
     public $timestamps = false;
-    protected $table="alumni";
+    protected $table="user_adm";
     protected $fillable = [
-        'nis', 'nama', 'nama_sekolah', 'nama_panggilan', 'tempat_lahir', 'tanggal_lahir', 'mulai', 'lulus', 'alamat', 'telp', 'email', 'pekerjaan', 'organisasi', 'jabatan', 'alamat_org', 'telp_org', 'foto', 'password'
+        'email', 'nama','foto', 'password'
     ];
 
     /**

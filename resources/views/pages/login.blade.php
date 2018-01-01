@@ -19,12 +19,12 @@
                 <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                   <div class="card-content">
-                    <h1 class="title level-item">
+                    <h1 class="title">
                       <img src="img/logo-full.png" alt="logo">
                     </h1>
                       <div class="field">
                         <p class="control has-icons-left has-icons-right">
-                          <input required class="input" name="email" type="email" placeholder="Email" required>
+                          <input required class="input" maxlength="32" name="email" type="email" placeholder="Email" required>
                           <span class="icon is-small is-left">
                             <i class="fa fa-envelope"></i>
                           </span>
@@ -80,7 +80,7 @@
                 <div class="field column">
                   <label class="label">Nama Sekarang</label>
                   <div class="control has-icons-left">
-                  <input required name="nama" class="input" type="text" placeholder="Nama Sekarang">
+                  <input required name="nama" class="input" maxlength="32" type="text" placeholder="Nama Sekarang">
                     <span class="icon is-small is-left">
                       <i class="fa fa-user"></i>
                     </span>
@@ -89,7 +89,7 @@
                 <div class="field column">
                   <label class="label">Nama Panggilan</label>
                   <div class="control has-icons-left">
-                  <input required name="nama_panggilan" class="input" type="text" placeholder="Nama Panggilan">
+                  <input required name="nama_panggilan" maxlength="32" class="input" type="text" placeholder="Nama Panggilan">
                     <span class="icon is-small is-left">
                       <i class="fa fa-user-circle-o"></i>
                     </span>
@@ -100,7 +100,7 @@
                 <div class="field column">
                   <label class="label">Nama Waktu Sekolah</label>
                   <div class="control has-icons-left">
-                  <input required class="input" name="nama_sekolah" type="text" placeholder="Nama Waktu Sekolah">
+                  <input required class="input" maxlength="32" name="nama_sekolah" type="text" placeholder="Nama Waktu Sekolah">
                     <span class="icon is-small is-left">
                       <i class="fa fa-user"></i>
                     </span>
@@ -111,7 +111,7 @@
                 <div class="field column">
                   <label class="label">Tempat Lahir</label>
                   <div class="control has-icons-left">
-                  <input required class="input" name="tempat_lahir" type="text" placeholder="Tempat Lahir">
+                  <input required class="input" maxlength="32" name="tempat_lahir" type="text" placeholder="Tempat Lahir">
                     <span class="icon is-small is-left">
                       <i class="fa fa-map-marker"></i>
                     </span>
@@ -131,7 +131,7 @@
                 <div class="field column">
                   <label class="label">Nomor Induk Siswa</label>
                   <div class="control has-icons-left">
-                  <input required class="input" type="text" name="nis" placeholder="Nomor Induk Siswa">
+                  <input required class="input" maxlength="20" type="text" name="nis" placeholder="Nomor Induk Siswa">
                     <span class="icon is-small is-left">
                       <i class="fa fa-id-card"></i>
                     </span>
@@ -162,7 +162,7 @@
                 <div class="field column">
                   <label class="label">Alamat Rumah</label>
                   <div class="control">
-                    <textarea required name="alamat" class="textarea" placeholder="Alamat Rumah"></textarea>
+                    <textarea required maxlength="32" name="alamat" class="textarea" placeholder="Alamat Rumah"></textarea>
                   </div>
                 </div>
               </div>
@@ -170,7 +170,7 @@
                 <div class="field column">
                   <label class="label">Nomor Handphone</label>
                   <div class="control has-icons-left">
-                  <input required class="input" name="telp" type="telp" placeholder="Nomor Handphone">
+                  <input required class="input" maxlength="16" name="telp" type="telp" placeholder="Nomor Handphone">
                     <span class="icon is-small is-left">
                       <i class="fa fa-mobile"></i>
                     </span>
@@ -181,7 +181,7 @@
                 <div class="field column">
                   <label class="label">Email</label>
                   <div class="control has-icons-left">
-                    <input required name="email" class="input" type="email" placeholder="Email">
+                    <input required name="email" maxlength="32" class="input" type="email" placeholder="Email">
                     <span class="icon is-small is-left">
                       <i class="fa fa-envelope"></i>
                     </span>
@@ -192,7 +192,7 @@
                 <div class="field column">
                   <label class="label">Pekerjaan</label>
                   <div class="control has-icons-left">
-                  <input required class="input" name="pekerjaan" type="text" placeholder="Pekerjaan">
+                  <input required class="input" maxlength="32" name="pekerjaan" type="text" placeholder="Pekerjaan">
                     <span class="icon is-small is-left">
                       <i class="fa fa-briefcase"></i>
                     </span>
@@ -203,7 +203,7 @@
                 <div class="field column">
                   <label class="label">Organisasi</label>
                   <div class="control has-icons-left">
-                  <input required class="input" name="organisasi" type="text" placeholder="Oragnisasi">
+                  <input required class="input" maxlength="32" name="organisasi" type="text" placeholder="Oragnisasi">
                     <span class="icon is-small is-left">
                       <i class="fa fa-users"></i>
                     </span>
@@ -212,7 +212,7 @@
                 <div class="field column">
                   <label class="label">Jabatan</label>
                   <div class="control has-icons-left">
-                  <input required class="input" type="text" name="jabatan" placeholder="Jabatan">
+                  <input required class="input" type="text" maxlength="32" name="jabatan" placeholder="Jabatan">
                     <span class="icon is-small is-left">
                       <i class="fa fa-sitemap"></i>
                     </span>
@@ -223,7 +223,7 @@
                 <div class="field column">
                   <label class="label">Alamat</label>
                   <div class="control">
-                    <textarea required name="alamat_org" class="textarea" placeholder="Alamat"></textarea>
+                    <textarea required name="alamat_org" class="textarea" maxlength="32" placeholder="Alamat"></textarea>
                   </div>
                 </div>
               </div>
@@ -231,7 +231,7 @@
                 <div class="field column">
                   <label class="label">Telepon</label>
                   <div class="control has-icons-left">
-                  <input required class="input" type="telp" name="telp_org" placeholder="Telepon">
+                  <input required class="input" type="telp" name="telp_org" maxlength="16" placeholder="Telepon">
                     <span class="icon is-small is-left">
                       <i class="fa fa-phone"></i>
                     </span>

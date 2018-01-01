@@ -49,7 +49,7 @@
           <a class="navbar-link">
             <span class="mright">{{ Auth::user()->nama }}</span>
             <figure class="image is-32x32">
-              <img class="round" src="img/foto/{{ Auth::user()->foto }}">
+              <img class="round" src="/palmturi/public/img/foto/{{ Auth::user()->foto }}">
             </figure>
           </a>
           <div class="navbar-dropdown is-boxed is-right">
@@ -66,7 +66,7 @@
               Pengaturan
             </a>
             <hr class="navbar-divider">
-            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="navbar-item">
+            <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="navbar-item">
               <span class="icon is-small">
                 <i class="fa fa-power-off"></i>
               </span>
