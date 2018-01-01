@@ -11,7 +11,7 @@
             <div class="columns">
               <div class="column is-2">
                 <figure class="image is-96x96 round-white">
-                  <img src="/palmturi/public/img/foto/{{ $alumni->foto }}">
+                  <img src="{{asset('img/foto')}}/{{ $alumni->foto }}">
                 </figure>
               </div>
               <div class="column pad-top">

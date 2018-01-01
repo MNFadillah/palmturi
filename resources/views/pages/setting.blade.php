@@ -221,7 +221,7 @@
             <div class="column is-2-desktop">
               <div class="columns level-item">
                 <figure class="image is-128x128 mtop">
-                  <img src="img/foto/{{ $alumni->foto }}">
+                  <img src="{{asset('img/foto')}}/{{ $alumni->foto }}">
                 </figure>
               </div>
             </div>

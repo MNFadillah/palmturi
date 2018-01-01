@@ -18,7 +18,7 @@
             <div class="card-content  has-text-centered">
               <div class="columns level-item">
                 <figure class="image is-96x96 round">
-                  <img src="/palmturi/public/img/foto/{{ $data['foto'] }}">
+                  <img src="{{asset('img/foto')}}/{{ $data['foto'] }}">
                 </figure>
               </div>
               <p class="subtitle">

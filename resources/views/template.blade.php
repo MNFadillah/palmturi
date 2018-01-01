@@ -49,7 +49,7 @@
           <a class="navbar-link">
             <span class="mright">{{ Auth::user()->nama }}</span>
             <figure class="image is-32x32">
-              <img class="round" src="/palmturi/public/img/foto/{{ Auth::user()->foto }}">
+              <img class="round" src="{{asset('img/foto')}}/{{ Auth::user()->foto }}">
             </figure>
           </a>
           <div class="navbar-dropdown is-boxed is-right">

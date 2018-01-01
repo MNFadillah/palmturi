@@ -24,7 +24,7 @@
                       <div class="card has-text-justified">
                         <div class="card-image">
                           <figure class="image is-4by3">
-                            <img src="/palmturi/public/img/berita/{{$data['featured_image']}}" alt="Placeholder image">
+                            <img src="{{asset('img/berita')}}/{{$data['featured_image']}}" alt="Placeholder image">
                           </figure>
                         </div>
                         <div class="card-content">

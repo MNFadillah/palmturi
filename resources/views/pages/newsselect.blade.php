@@ -43,7 +43,7 @@
             <article class="media mleft">
               <div class="media-left">
                 <figure class="image is-32x32">
-                  <img class="round" src="/palmturi/public/img/foto/{{$data['foto']}}" alt="Image">
+                  <img class="round" src="{{asset('img/foto')}}/{{$data['foto']}}" alt="Image">
                 </figure>
               </div>
               <div class="media-content">
