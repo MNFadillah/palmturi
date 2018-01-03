@@ -20,7 +20,7 @@ class BeritaController extends Controller
     {
         //
         $id=3;
-        $berita = Berita::paginate($id);
+        $berita = Berita::orderBy('created_at','DESC')->paginate($id);
         return view('pages.news',compact('berita','id'));
     }
     
@@ -29,7 +29,7 @@ class BeritaController extends Controller
         //
         $id = $request->get('id');
         $id=$id+3;
-        $berita = Berita::paginate($id);
+        $berita = Berita::orderBy('created_at','DESC')->paginate($id);
         return view('pages.news',compact('berita','id'));
     }
     

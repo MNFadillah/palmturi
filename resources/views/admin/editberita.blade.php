@@ -20,36 +20,36 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body pad">
-            <form class="form-horizontal">
+            <form method="POST" action="{{action('AdmBeritaController@update', $id)}}" enctype="multipart/form-data" class="form-horizontal">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">      
               <div class="box-body">
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Judul</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
+                    <input name="judul" value="{{$berita['judul']}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label>Minimal</label>
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Pendidikan</option>
-                      <option>Info</option>
-                      <option>Info</option>
-                      <option>Info</option>
-                      <option>Info</option>
+                    <select name="kategori" class="form-control select2" style="width: 100%;">
+                    @foreach($kat as $data)
+                    <option value="{{$data['id_kategori']}}" @if($data['id_kategori']==$berita['id_kategori']) selected @endif>{{$data['nama']}}</option>
+                    @endforeach
                     </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
-                    <img class="img-responsive" src="{{asset('admin/img/user-160x160.jpg')}}" alt="Foto Berita">
+                    <img class="img-responsive" src="{{asset('img/berita')}}/{{$berita['featured_image']}}" alt="Foto Berita">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputFile">Masukan Foto</label>
                     <input type="text" readonly="" class="form-control" placeholder="Browse...">
-                    <input type="file" id="exampleInputFile">
+                    <input type="file" name="gambar" id="exampleInputFile">
                     <p class="help-block">Masukan Foto Untuk Berita</p>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
                   <div class="col-sm-12">
                     <label for="exampleInputFile">Kontent Berita</label>
                       <textarea id="editor1" name="editor1" rows="10" cols="80">
-                        Masukan Konten Dari Berita
+                        {{$berita['konten']}}
                       </textarea>
                   </div>
                 </div>

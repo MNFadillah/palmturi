@@ -80,12 +80,12 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active ">
-          <a href="pages/widgets.html">
+          <a href="{{URL::to('/adm')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+          <a href="{{URL::to('/adm/alumni')}}">
             <i class="fa fa-users"></i> <span>Alumni</span>
           </a>
         </li>
@@ -97,8 +97,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i>Input</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i>Lihat</a></li>
+            <li><a href="{{action('AdmBeritaController@create')}}"><i class="fa fa-circle-o"></i>Input</a></li>
+            <li><a href="{{URL::to('/adm/berita')}}"><i class="fa fa-circle-o"></i>Lihat</a></li>
           </ul>
         </li>
       </ul>
@@ -161,6 +161,12 @@
     $(".select2").select2();
     $('#reservation').daterangepicker();
     $('#datepicker').datepicker({
+      autoclose: true
+    });
+    $('#mulai').datepicker({
+      autoclose: true
+    });
+    $('#lulus').datepicker({
       autoclose: true
     });
   });

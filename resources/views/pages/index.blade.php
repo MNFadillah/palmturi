@@ -36,9 +36,9 @@
                     </p>
                   </div>
                   <small>{{$data['created_at']}}<br></small>
-                  <a href="{{URL::to('/pilihberita')}}">
+                  <a href="{{action('BeritaController@show', $data['id_berita'])}}">
                   <button class="button is-link is-outlined is-pulled-right is-hidden-touch">Baca Selengkapnya</button></a>
-                  <a  href="{{URL::to('/pilihberita')}}"><button class="button is-link  is-outlined is-fullwidth mtop is-hidden-desktop">
+                  <a  href="{{action('BeritaController@show', $data['id_berita'])}}"><button class="button is-link  is-outlined is-fullwidth mtop is-hidden-desktop">
                   Baca Selengkapnya</button></a>
                 </div>
               </article>

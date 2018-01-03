@@ -18,7 +18,7 @@ class BerandaController extends Controller
     {
         //
         $ang=substr(Auth::user()->lulus, 0, 4);
-        $berita = Berita::paginate(3);
+        $berita = Berita::orderBy('created_at','DESC')->paginate(3);
         return view('pages.index',compact('berita','ang'));
     }
 }
