@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Admin as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
     use Notifiable;
+
+    protected $guard="admin";
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +19,7 @@ class Admin extends Authenticatable
     public $timestamps = false;
     protected $table="user_adm";
     protected $fillable = [
-        'email', 'nama','foto', 'password'
+        'nama', 'email', 'foto', 'password'
     ];
 
     /**
@@ -26,6 +28,6 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password'
+        'password','remember_token'
     ];
 }

@@ -23,13 +23,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('admin/img/user-160x160.jpg')}}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Rifardi Taufiq</span>
+              <img src="{{asset('admin/img/')}}/{{ Auth::user()->foto }}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->nama }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('admin/img/user-160x160.jpg')}}" class="img-circle" alt="User Image">
+                <img src="{{asset('admin/img/')}}/{{ Auth::user()->foto }}" class="img-circle" alt="User Image">
 
                 <p>
                   Administrator
@@ -38,11 +38,12 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Edit</a>
+                  <a href="{{URL::to('/adm/setting')}}" class="btn btn-default btn-flat">Edit</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Keluar</a>
+                  <a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Keluar</a>
                 </div>
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
               </li>
             </ul>
           </li>
@@ -58,10 +59,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('admin/img/user-160x160.jpg')}}" class="img-circle" alt="User Image">
+          <img src="{{asset('admin/img/')}}/{{ Auth::user()->foto }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Rifardi Taufiq</p>
+          <p>{{ Auth::user()->nama }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -80,12 +81,12 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active ">
-          <a href="pages/widgets.html">
+          <a href="{{URL::to('/adm')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="pages/widgets.html">
+          <a href="{{URL::to('/adm/alumni')}}">
             <i class="fa fa-users"></i> <span>Alumni</span>
           </a>
         </li>
@@ -97,8 +98,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i>Input</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i>Lihat</a></li>
+            <li><a href="{{action('AdmBeritaController@create')}}"><i class="fa fa-circle-o"></i>Input</a></li>
+            <li><a href="{{URL::to('/adm/berita')}}"><i class="fa fa-circle-o"></i>Lihat</a></li>
           </ul>
         </li>
       </ul>
@@ -161,6 +162,15 @@
     $(".select2").select2();
     $('#reservation').daterangepicker();
     $('#datepicker').datepicker({
+      dateFormat: 'yyyy-dd-mm'
+    });
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+    $('#mulai').datepicker({
+      autoclose: true
+    });
+    $('#lulus').datepicker({
       autoclose: true
     });
   });

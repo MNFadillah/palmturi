@@ -19,8 +19,8 @@ class BeritaController extends Controller
     public function index()
     {
         //
-        $id=3;
-        $berita = Berita::paginate($id);
+        $id=6;
+        $berita = Berita::orderBy('created_at','DESC')->paginate($id);
         return view('pages.news',compact('berita','id'));
     }
     
@@ -28,8 +28,12 @@ class BeritaController extends Controller
     {
         //
         $id = $request->get('id');
+        return redirect("berita/$id/more");
+    }
+
+    public function more($id){
         $id=$id+3;
-        $berita = Berita::paginate($id);
+        $berita = Berita::orderBy('created_at','DESC')->paginate($id);
         return view('pages.news',compact('berita','id'));
     }
     

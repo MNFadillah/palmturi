@@ -20,7 +20,7 @@ class AlumniController extends Controller
     public function index()
     {
         //
-        $alumni = Alumni::all()->toArray();
+        $alumni = Alumni::where('status', '<>', 0)->get();
         return view('pages.listuser', compact('alumni'));
     }
 
@@ -90,7 +90,7 @@ class AlumniController extends Controller
     public function angkatan($id){
         $a=$id;
         $z=$id+1;
-        $alumni = Alumni::whereBetween('lulus', ["$a-01-01", "$z-01-01"])->get();
+        $alumni = Alumni::whereBetween('lulus', ["$a-01-01", "$z-01-01"])->where('status', '<>', 0)->get();
         return view('pages.listuser', compact('alumni'));
     }
 
@@ -100,7 +100,7 @@ class AlumniController extends Controller
     }
 
     public function cari($id){
-        $alumni = Alumni::where('nama', 'LIKE', '%' . $id . '%')->paginate(10);
+        $alumni = Alumni::where('nama', 'LIKE', '%' . $id . '%')->where('status', '<>', 0)->get();
         return view('pages.listuser', compact('alumni', 'id'));
     }
     /**

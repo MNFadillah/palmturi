@@ -35,7 +35,7 @@
                           </div>
 
                           <div class="content">
-                            {{substr($data['konten'], 0, 256)}}...
+                            {!!substr($data['konten'], 0, 256)!!}...
                             <br>
                             <br>
                             <span class="has-text-grey has-text-size-6">Dipostkan {{date('d-F-Y', strtotime($data['created_at']))}} at {{date('h:i a', strtotime($data['created_at']))}}</span>

@@ -33,6 +33,8 @@ Route::get('pencarian', 'AlumniController@index');
 
 Route::post('toCari', ['as' => 'toCari', 'uses' => 'AlumniController@toCari']);
 
+Route::post('toUpdate', ['as' => 'toUpdate', 'uses' => 'AdmAlumniController@toUpdate']);
+
 Route::get('pencarian/{id}','AlumniController@cari');
 
 Route::get('angkatan', 'AlumniController@index');
@@ -41,4 +43,17 @@ Route::get('angkatan/{id}', 'AlumniController@angkatan');
 
 Route::resource('alumni', 'AlumniController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/adm/', 'DashboardController@index');
+
+Route::get('/adm/dashboard', 'DashboardController@index');
+
+Route::resource('/adm/alumni', 'AdmAlumniController');
+
+Route::resource('/adm/berita', 'AdmBeritaController');
+
+Route::post('/adm/berita/delete', 'AdmBeritaController@delete');
+
+Route::get('/adm/tes', function(){
+    return view('admin.editberita');
+});
+

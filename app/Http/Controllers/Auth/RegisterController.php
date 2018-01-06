@@ -124,7 +124,9 @@ class RegisterController extends Controller
             //$img = $imageManager->make($imageRealPath);
 
             $img = Image::make($imageRealPath); // use this if you want facade style code
-            $img->resize(96, 96);
+            $img->resize(null, 96, function ($constraint) {
+                $constraint->aspectRatio();
+            });
             return $img->save(public_path('img/foto'). '/'. $nama);
         }
         catch(Exception $e)

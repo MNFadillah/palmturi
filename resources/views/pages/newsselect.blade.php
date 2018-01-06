@@ -16,11 +16,11 @@
               <div class="content">
                 <h3 class="title has-text-centered has-text-info has-text-weight-semibold">{{$berita['judul']}}</h3>
                 <figure class="image is-16by9">
-                  <img src="/palmturi/public/img/berita/{{$berita['featured_image']}}" alt="Image">
+                  <img src="{{asset('img/berita')}}/{{$berita['featured_image']}}" alt="Image">
                 </figure>
                 <section class="section">
                   <p class="has-text-justified">
-                    {{$berita['konten']}}
+                    {!!$berita['konten']!!}
                   </p>
                   <nav class="level is-mobile">
                     <div class="level-left">

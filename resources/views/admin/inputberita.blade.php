@@ -20,23 +20,22 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body pad">
-            <form class="form-horizontal">
+            <form method="POST" action="{{url('adm/berita')}}" enctype="multipart/form-data" class="form-horizontal">
+            {{csrf_field()}}
               <div class="box-body">
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Judul</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
+                    <input name="judul" type="text" class="form-control" id="exampleInputEmail1" placeholder="Masukan Judul">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
-                    <label>Minimal</label>
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Pendidikan</option>
-                      <option>Info</option>
-                      <option>Info</option>
-                      <option>Info</option>
-                      <option>Info</option>
+                    <label>Kategori</label>
+                    <select name="kategori" class="form-control select2" style="width: 100%;">
+                      @foreach($kat as $data)
+                      <option value="{{$data['id_kategori']}}">{{$data['nama']}}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
@@ -44,7 +43,7 @@
                   <div class="col-sm-12">
                     <label for="exampleInputFile">Masukan Foto</label>
                     <input type="text" readonly="" class="form-control" placeholder="Browse...">
-                    <input type="file" id="exampleInputFile">
+                    <input name="gambar" type="file" id="exampleInputFile">
                     <p class="help-block">Masukan Foto Untuk Berita</p>
                   </div>
                 </div>
