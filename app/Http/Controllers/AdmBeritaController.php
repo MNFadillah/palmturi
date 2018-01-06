@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Berita;
 use App\Kategori;
+use App\Komentar;
 use Image;
 use Carbon\Carbon;
 
 class AdmBeritaController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index()
     {
         //
@@ -130,6 +135,8 @@ class AdmBeritaController extends Controller
         //
         $berita = Berita::find($id);
         unlink('img/berita/'.$berita->featured_image);
+        $komentar=Komentar::where('id_berita','=',$berita->id_berita);
+        $komentar->delete();
         $berita->delete();
 
         return redirect('adm/berita');

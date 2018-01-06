@@ -130,10 +130,15 @@
                         </div>
                         <input type="text" name="mulai" value="" class="form-control pull-right" id="mulai">
                       </div>
-                      
+                    </div>  
+                      <!-- /.input group -->
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <label>Masa Sekolah</label>
                       <div class="input-group">
                         <div class="input-group-addon">
-                        Sampai
+                          <i class="fa fa-calendar"></i>
                         </div>
                         <input type="text" name="lulus" value="" class="form-control pull-right" id="lulus">
                       </div>

@@ -20,30 +20,31 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body pad">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="{{route('profile')}}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" placeholder="Masukan Email">
+                    <input name="email" value="{{$data['email']}}" type="email" class="form-control" placeholder="Masukan Email">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Nama Admin</label>
-                    <input type="text" class="form-control"  placeholder="Masukan Nama">
+                    <input name="nama" value="{{$data['nama']}}" type="text" class="form-control"  placeholder="Masukan Nama">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
-                    <img class="img-responsive" src="{{asset('admin/img/user-160x160.jpg')}}" alt="Foto Berita">
+                    <img class="img-responsive" src="{{asset('admin/img')}}/{{$data['foto']}}" alt="Foto Berita">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputFile">Masukan Foto</label>
                     <input type="text" readonly="" class="form-control" placeholder="Browse...">
-                    <input type="file" id="exampleInputFile">
+                    <input type="file" name="foto" id="exampleInputFile">
                     <p class="help-block">Masukan Foto Untuk Berita</p>
                   </div>
                 </div>
@@ -71,24 +72,25 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body pad">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="{{route('password')}}" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="box-body">
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Password Lama</label>
-                    <input type="password" class="form-control"  placeholder="Masukan Password Lama">
+                    <input type="password" name="password" class="form-control"  placeholder="Masukan Password Lama">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Password Baru</label>
-                    <input type="password" class="form-control"  placeholder="Masukan Password Baru">
+                    <input type="password" name="newpass" class="form-control"  placeholder="Masukan Password Baru">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-12">
                     <label for="exampleInputEmail1">Ulangi Password Baru</label>
-                    <input type="password" class="form-control"  placeholder="Masukan Password Baru">
+                    <input type="password" name="cpass" class="form-control"  placeholder="Masukan Password Baru">
                   </div>
                 </div>
               </div>

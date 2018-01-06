@@ -8,6 +8,10 @@ use App\Alumni;
 class AdmAlumniController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index()
     {
         //
@@ -92,9 +96,9 @@ class AdmAlumniController extends Controller
         $alumni->nama_sekolah=$request->get('namas');
         $alumni->nama_panggilan=$request->get('namas');
         $alumni->tempat_lahir=$request->get('tpl');
-        $alumni->tanggal_lahir=$request->get('tgl');
-        $alumni->mulai=$request->get('mulai');
-        $alumni->lulus=$request->get('lulus');
+        $alumni->tanggal_lahir=date("Y-m-d", strtotime($request->get('tgl')));
+        $alumni->mulai=date("Y-m-d", strtotime($request->get('mulai')));
+        $alumni->lulus=date("Y-m-d", strtotime($request->get('lulus')));
         $alumni->alamat=$request->get('alamat');
         $alumni->telp=$request->get('telp');
         $alumni->email=$request->get('email');
@@ -108,6 +112,13 @@ class AdmAlumniController extends Controller
         return redirect('adm/alumni');
     }
 
+    public function approve(Request $request){
+        $id=$request->get('id');
+        $alumni = Alumni::find($id);
+        $alumni->status="1";
+        $alumni->save();
+        return redirect('adm');
+    }
     /**
      * Remove the specified resource from storage.
      *

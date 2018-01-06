@@ -81,7 +81,12 @@
                   <td>{{ $data['nama'] }}</td>
                   <td>{{ $data['telp'] }}</td>
                   <td>{{ substr($data['lulus'],0,4) }}</td>
-                  <td><a href="#"><button class="btn btn-primary bg-green"><i class="fa fa-check"></i></button></a>
+                  <td>
+                    <form method="POST" action="{{ route('approve') }}" enctype="multipart/form-data" class="form-horizontal">
+                    {{ csrf_field() }}
+                      <input name="id" id="id" type="hidden" class="form-control" value="{{ $data['id'] }}">
+                      <a href=""><button type="submit" class="btn btn-primary bg-green"><i class="fa fa-check"></i></button></a>
+                    </form>
                   <td>  
                     <form action="{{action('AdmAlumniController@destroy', $data['id'])}}" method="post">
                     {{csrf_field()}}

@@ -32,7 +32,7 @@
                     <p class="has-text-justified">
                       <strong class="subtitle has-text-weight-semibold">{{$data['judul']}}</strong>
                       <br>
-                      {{substr($data['konten'], 0, 256)}}...
+                      {!!substr($data['konten'], 0, 256)!!}...
                     </p>
                   </div>
                   <small>{{$data['created_at']}}<br></small>
