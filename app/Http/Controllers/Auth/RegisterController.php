@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+// import the Intervention Image Manager Class
 use Image;
 
 class RegisterController extends Controller
@@ -68,15 +69,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
+
     }
 
     public function register(Request $request)
     {
         $file       = $request->file('foto');
-        //$fileName   = $file->getClientOriginalName();
+        // $fileName   = $file->getClientOriginalName();
         $fileEx     = $file->getClientOriginalExtension();
-        if($fileEx=='jpg' || $fileEx=='png') {
+        if($fileEx=='jpg' || $fileEx=='JPG' || $fileEx=='png' || $fileEx=='PNG' || $fileEx=='jpeg' || $fileEx=='JPEG') {
             $alumni=new User;
             $alumni->nis=$request->get('nis');
             $alumni->nama=$request->get('nama');
@@ -95,15 +96,20 @@ class RegisterController extends Controller
             $alumni->alamat_org=$request->get('alamat_org');
             $alumni->telp_org=$request->get('telp_org');
             $alumni->password=bcrypt($request->get('password'));
+
+            $alumni->save();
+
+            // $path = $file->store('public/img/foto');
             try{
-                $alumni->save();
-                $newName    = $alumni->id.".".$fileEx;
-                $file=$this->resize($file, $newName);
-                chmod("img/foto/$newName", 0755);
-                $alumni->foto=$newName;
-                $alumni->save();
-                return "<script>alert('Berhasil');location.href='login';</script>";
-            } 
+              $newName    = $alumni->id.".".$fileEx;
+
+              $file=$this->resize($file, $newName);
+              chmod("img/foto/$newName", 0755);
+              $alumni->foto=$newName;
+
+              $alumni->save();
+              return "<script>alert('Berhasil');location.href='login';</script>";
+            }
             catch(\Exception $e){
                 return "<script>alert('$e');location.href='register';</script>";
             }
@@ -114,7 +120,7 @@ class RegisterController extends Controller
 
     private function resize($image, $nama)
     {
-        try 
+        try
         {
             $extension      =   $image->getClientOriginalExtension();
             $imageRealPath  =   $image->getRealPath();
@@ -122,7 +128,7 @@ class RegisterController extends Controller
 
             //$imageManager = new ImageManager(); // use this if you don't want facade style code
             //$img = $imageManager->make($imageRealPath);
-
+            // print_r($imageRealPath);
             $img = Image::make($imageRealPath); // use this if you want facade style code
             $img->resize(null, 96, function ($constraint) {
                 $constraint->aspectRatio();

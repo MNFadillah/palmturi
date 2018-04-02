@@ -22,7 +22,7 @@ class AdmBeritaController extends Controller
         $berita = Berita::orderBy('created_at','DESC')->join('kategori', 'kategori.id_kategori', '=', 'berita.id_kategori')->get();
         return view('admin.berita',compact('berita'));
     }
-    
+
     public function create()
     {
         $kat = Kategori::orderBy('nama','ASC')->get();
@@ -40,15 +40,16 @@ class AdmBeritaController extends Controller
             $berita->konten=$request->get('editor1');
             $berita->id_kategori=$request->get('kategori');
             $berita->created_at=Carbon::now()->toDateTimeString();
+
+            $berita->save();
             try{
-                $berita->save();
                 $newName    = $berita->id_berita.".".$fileEx;
                 $file=$this->resize($file, $newName);
                 chmod("img/berita/$newName", 0755);
                 $berita->featured_image=$newName;
                 $berita->save();
                 return redirect('adm/berita');
-            } 
+            }
             catch(\Exception $e){
                 $a=$e->getMessage()." tes";
                 return "<script>alert($a);location.href='adm/berita/create';</script>";
@@ -59,7 +60,7 @@ class AdmBeritaController extends Controller
 
     private function resize($image, $nama)
     {
-        try 
+        try
         {
             $extension      =   $image->getClientOriginalExtension();
             $imageRealPath  =   $image->getRealPath();

@@ -17,7 +17,24 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $table="alumni";
     protected $fillable = [
-        'nis', 'nama', 'nama_sekolah', 'nama_panggilan', 'tempat_lahir', 'tanggal_lahir', 'mulai', 'lulus', 'alamat', 'telp', 'email', 'pekerjaan', 'organisasi', 'jabatan', 'alamat_org', 'telp_org', 'foto', 'password'
+        'nis',
+        'nama',
+        'nama_sekolah',
+        'nama_panggilan',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'mulai',
+        'lulus',
+        'alamat',
+        'telp',
+        'email',
+        'pekerjaan',
+        'organisasi',
+        'jabatan',
+        'alamat_org',
+        'telp_org',
+        'foto',
+        'password'
     ];
 
     /**
